@@ -44,7 +44,7 @@ const Nav: NextPage = () => {
 										</g>
 									</svg>
 									<p className="text-bold md:text2xl text-base pl-3 text-gray-800">
-										The North
+										Sniper Monkey
 									</p>
 								</div>
 								<div
@@ -444,52 +444,18 @@ const Nav: NextPage = () => {
 								</g>
 							</svg>
 							<h3 className="text-base text-gray-800 font-bold tracking-normal leading-tight ml-3 hidden lg:block">
-								The North
+								Sniper Monkey
 							</h3>
 						</div>
 						<ul className="pr-32 xl:flex hidden items-center h-full">
-							<li className="hover:text-indigo-700 cursor-pointer h-full flex items-center text-sm text-indigo-700 tracking-normal">
+							<li className="hover:text-indigo-700 cursor-pointer h-full flex items-center text-sm text-indigo-700 mx-5 tracking-normal">
 								Dashboard
 							</li>
-							<li className="hover:text-indigo-700 cursor-pointer h-full flex items-center text-sm text-gry-800 mx-10 tracking-normal relative">
-								{product ? (
-									<ul className="bg-white shadow rounded py-1 w-32 left-0 mt-16 -ml-4 absolute  top-0">
-										<li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 px-3 font-normal">
-											Landing Pages
-										</li>
-										<li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 px-3 font-normal">
-											Templates
-										</li>
-										<li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 px-3 font-normal">
-											Components
-										</li>
-									</ul>
-								) : (
-									""
-								)}
-								Products
-								<span className="ml-2" onClick={() => setProduct(!product)}>
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										className="icon icon-tabler icon-tabler-chevron-down"
-										width={16}
-										height={16}
-										viewBox="0 0 24 24"
-										strokeWidth={1}
-										stroke="currentColor"
-										fill="none"
-										strokeLinecap="round"
-										strokeLinejoin="round"
-									>
-										<path stroke="none" d="M0 0h24v24H0z" />
-										<polyline points="6 9 12 15 18 9" />
-									</svg>
-								</span>
-							</li>
-							<li className="hover:text-indigo-700 cursor-pointer h-full flex items-center text-sm text-gry-800 mr-10 tracking-normal">
+
+							<li className="hover:text-indigo-700 cursor-pointer h-full flex items-center text-sm text-gray-800 mx-5 tracking-normal">
 								Performance
 							</li>
-							<li className="hover:text-indigo-700 cursor-pointer h-full flex items-center text-sm text-gray-800 tracking-normal relative">
+							<li className="hover:text-indigo-700 cursor-pointer h-full flex items-center text-sm text-gray-800 mx-5 tracking-normal relative">
 								{deliverables ? (
 									<ul className="bg-white shadow rounded py-1 w-32 left-0 mt-16 -ml-4 absolute  top-0">
 										<li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 px-3 font-normal">
@@ -627,93 +593,16 @@ const Nav: NextPage = () => {
 									) : (
 										""
 									)}
-									<img
-										className="rounded-full h-10 w-10 object-cover"
-										src="https://tuk-cdn.s3.amazonaws.com/assets/components/sidebar_layout/sl_1.png"
-										alt="avatar"
-									/>
-									<p className="text-gray-800 text-sm ml-2">Jane Doe</p>
+									<button className="inline-flex sm:ml-3 mt-4 sm:mt-0 items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded">
+										<p className="text-sm font-medium leading-none text-white">
+											Connect wallet
+										</p>
+									</button>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div className="visible xl:hidden flex items-center">
-						{/*   <ul class="z-40 p-2 border-r bg-white absolute rounded top-0 left-0 right-0 shadow mt-16 md:mt-16 hidden">
-                  <li class="flex xl:hidden cursor-pointer text-gray-600 text-base leading-3 tracking-normal mt-2 py-3 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
-                      <div class="flex items-center">
-                          <span class="leading-6 ml-2 font-bold">Dashboard</span>
-                      </div>
-                  </li>
-                  <li class="flex xl:hidden flex-col cursor-pointer text-gray-600 text-base leading-3 tracking-normal py-3 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none flex justify-center"
-                      >
-                      <div class="flex items-center">
-                          <span class="leading-6 ml-2 font-bold">Products</span>
-                      </div>
-                      <ul class="ml-2 mt-3 hidden">
-                          <li class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">
-                              Landing Pages
-                          </li>
-                          <li class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">
-                              Templates
-                          </li>
-                          <li class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">
-                              Components
-                          </li>
-                      </ul>
-                  </li>
-                  <li class="flex xl:hidden cursor-pointer text-gray-600 text-base leading-3 tracking-normal py-3 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none">
-                      <span class="leading-6 ml-2 font-bold">Performance</span>
-                  </li>
-                 <li class="flex xl:hidden flex-col cursor-pointer text-gray-600 text-base leading-3 tracking-normal mb-2 py-3 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none flex justify-center"
-                     
-                 >
-                      <div class="flex items-center">
-                          <span class="leading-6 ml-2 font-bold">Deliverables</span>
-                      </div>
-                      <ul class="ml-2 mt-3 hidden">
-                          <li class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">
-                              Landing Pages
-                          </li>
-                          <li class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">
-                              Templates
-                          </li>
-                          <li class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">
-                              Components
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                      <hr class="border-b border-gray-300 w-full"/>
-                  </li>
-                  <li class="ml-2 cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mt-2 py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none">
-                      <div class="flex items-center">
-                          <div class="w-12 cursor-pointer flex text-sm border-2 border-transparent rounded focus:outline-none focus:border-white transition duration-150 ease-in-out">
-                              <img class="rounded h-10 w-10 object-cover"
-                                   src="https://tuk-cdn.s3.amazonaws.com/assets/components/horizontal_navigation/hn_1.png"
-                                   alt="logo">
-                          </div>
-                          <p class="leading-6 text-base ml-1 cursor-pointer">Jane Doe</p>
-                          <div class="sm:ml-2 text-white relative">
-                              <svg xmlns="http://www.w3.org/2000/svg"
-                                   class="icon icon-tabler icon-tabler-chevron-down cursor-pointer"
-                                   width="20" height="20" viewBox="0 0 24 24" stroke-width="1"
-                                   stroke="currentColor" fill="none" stroke-linecap="round"
-                                   stroke-linejoin="round">
-                                  <path stroke="none" d="M0 0h24v24H0z"></path>
-                                  <polyline points="6 9 12 15 18 9"></polyline>
-                              </svg>
-                          </div>
-                      </div>
-                      <p class="leading-6 text-base ml-1 cursor-pointer">Jane Doe</p>
-                      <div class="sm:ml-2 text-white relative">
-                          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-down cursor-pointer" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                              <path stroke="none" d="M0 0h24v24H0z"></path>
-                              <polyline points="6 9 12 15 18 9"></polyline>
-                          </svg>
-                      </div>
-                  </li>
-                   
-              </ul> */}
 						<div>
 							<div
 								id="menu"

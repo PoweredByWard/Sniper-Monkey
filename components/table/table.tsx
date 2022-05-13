@@ -1,107 +1,67 @@
-import React,{useState} from "react";
-import type { NextPage } from "next";
+import React, { useEffect, useState } from "react";
+import type { InferGetServerSidePropsType, NextPage } from "next";
+import { Collection } from "@sniper-monkey/types/build";
+import { loadCollections } from "../../lib/collections";
+import Image from "next/image";
+import CollectionRow from "./row";
 
-const TableItem: NextPage = () => {
-    const [show, setShow] = useState(null)
-return(
-    <tr className="h-20 text-sm leading-none text-gray-800 bg-white hover:bg-gray-100 border-b border-t border-gray-100">
-                                <td className="pl-4 cursor-pointer">
-                                    <div className="flex items-center">
-                                        <div className="w-10 h-10">
-                                            <img className="w-full h-full" src="https://cdn.tuk.dev/assets/templates/olympus/projects.png" />
-                                        </div>
-                                        <div className="pl-4">
-                                            <p className="font-medium">UX Design &amp; Visual Strategy</p>
-                                            <p className="text-xs leading-3 text-gray-600 pt-2">Herman Group</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td className="pl-16">
-                                    <span className="bg-purple-800 text-purple-100 py-1 px-2 rounded-md">Revealing</span>
-                                </td>
-                                <td className="pl-12">
-                                    <p className="text-sm font-medium leading-none text-gray-800">72%</p>
-                                    <div className="w-24 h-3 bg-gray-100 rounded-full mt-2">
-                                        <div className="w-20 h-3 bg-green-progress rounded-full" />
-                                    </div>
-                                </td>
-                                <td className="pl-12">
-                                    <p className="font-medium">32/47</p>
-                                    <p className="text-xs leading-3 text-gray-600 mt-2">5 tasks pending</p>
-                                </td>
-                                <td className="pl-20">
-                                    <p className="font-medium">$13,000</p>
-                                    <p className="text-xs leading-3 text-gray-600 mt-2">$4,200 left</p>
-                                </td>
-                                <td className="pl-20">
-                                    <p className="font-medium">22.12.21</p>
-                                    <p className="text-xs leading-3 text-gray-600 mt-2">34 days</p>
-                                </td>
-                                <td className="px-7 2xl:px-0">
-                                    {
-                                        show==0 ? <button onClick={()=>setShow(null)} className="focus:outline-none pl-7">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 20 20" fill="none">
-                                            <path d="M4.16667 10.8334C4.62691 10.8334 5 10.4603 5 10.0001C5 9.53984 4.62691 9.16675 4.16667 9.16675C3.70643 9.16675 3.33334 9.53984 3.33334 10.0001C3.33334 10.4603 3.70643 10.8334 4.16667 10.8334Z" stroke="#A1A1AA" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M10 10.8334C10.4602 10.8334 10.8333 10.4603 10.8333 10.0001C10.8333 9.53984 10.4602 9.16675 10 9.16675C9.53976 9.16675 9.16666 9.53984 9.16666 10.0001C9.16666 10.4603 9.53976 10.8334 10 10.8334Z" stroke="#A1A1AA" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M15.8333 10.8334C16.2936 10.8334 16.6667 10.4603 16.6667 10.0001C16.6667 9.53984 16.2936 9.16675 15.8333 9.16675C15.3731 9.16675 15 9.53984 15 10.0001C15 10.4603 15.3731 10.8334 15.8333 10.8334Z" stroke="#A1A1AA" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                    </button>:<button onClick={()=>setShow(0)} className="focus:outline-none pl-7">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 20 20" fill="none">
-                                            <path d="M4.16667 10.8334C4.62691 10.8334 5 10.4603 5 10.0001C5 9.53984 4.62691 9.16675 4.16667 9.16675C3.70643 9.16675 3.33334 9.53984 3.33334 10.0001C3.33334 10.4603 3.70643 10.8334 4.16667 10.8334Z" stroke="#A1A1AA" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M10 10.8334C10.4602 10.8334 10.8333 10.4603 10.8333 10.0001C10.8333 9.53984 10.4602 9.16675 10 9.16675C9.53976 9.16675 9.16666 9.53984 9.16666 10.0001C9.16666 10.4603 9.53976 10.8334 10 10.8334Z" stroke="#A1A1AA" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M15.8333 10.8334C16.2936 10.8334 16.6667 10.4603 16.6667 10.0001C16.6667 9.53984 16.2936 9.16675 15.8333 9.16675C15.3731 9.16675 15 9.53984 15 10.0001C15 10.4603 15.3731 10.8334 15.8333 10.8334Z" stroke="#A1A1AA" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                    </button>
-                                    }
-                                   {show==0 &&  <div className="dropdown-content bg-white shadow w-24 absolute z-30 right-0 mr-6 ">
-                                        <div className="text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
-                                            <p>Edit</p>
-                                        </div>
-                                        <div className="text-xs w-full hover:bg-indigo-700 py-4 px-4 cursor-pointer hover:text-white">
-                                            <p>Delete</p>
-                                        </div>
-                                    </div>}
-                                </td>
-                            </tr>
-)
-}
+const Table = () => {
+	const [collections, setCollections] = useState([]);
 
-const Table: NextPage = () =>{
-    
-    return (
-        <>
-            <div className="w-full sm:px-6">
-                <div className="px-4 md:px-10 py-4 md:py-7 bg-gray-100 rounded-tl-lg rounded-tr-lg">
-                    <div className="sm:flex items-center justify-between">
-                        <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">Collections</p>
-                        <div>
-                            <button className="inline-flex sm:ml-3 mt-4 sm:mt-0 items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded">
-                                <p className="text-sm font-medium leading-none text-white">New Project</p>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div className="bg-white shadow px-4 md:px-10 pt-4 md:pt-7 pb-5 overflow-y-auto">
-                    <table className="w-full whitespace-nowrap">
-                        <thead>
-                            <tr className="h-16 w-full text-sm leading-none text-gray-800">
-                                <th className="font-normal text-left pl-4">Project</th>
-                                <th className="font-normal text-left pl-16">Status</th>
-                                <th className="font-normal text-left pl-12">Progress</th>
-                                <th className="font-normal text-left pl-12">Tasks</th>
-                                <th className="font-normal text-left pl-20">Budget</th>
-                                <th className="font-normal text-left pl-20">Deadline</th>
-                            </tr>
-                        </thead>
-                        <tbody className="w-full">
-                            
-                            <TableItem />
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </>
-    );
-}
+	useEffect(() => {
+		loadCollections().then((collections) => {
+			setCollections(collections);
+		});
+	}, []);
+	console.log(collections);
+	return (
+		<>
+			<div className="w-full sm:px-6">
+				<div className="px-4 md:px-10 py-4 md:py-7 bg-gray-100 rounded-tl-lg rounded-tr-lg">
+					<div className="sm:flex items-center justify-between">
+						<p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold leading-normal text-gray-800">
+							Collections
+						</p>
+						<div>
+							{/* <button className="inline-flex sm:ml-3 mt-4 sm:mt-0 items-start justify-start px-6 py-3 bg-indigo-700 hover:bg-indigo-600 focus:outline-none rounded">
+								<p className="text-sm font-medium leading-none text-white">
+									New Project
+								</p>
+							</button> */}
+						</div>
+					</div>
+				</div>
+				<div className="bg-white shadow px-4 md:px-10 pt-4 md:pt-7 pb-5">
+					<div className="overflow-y-auto">
+						<table className="w-full whitespace-nowrap">
+							<thead>
+								<tr className="h-16 w-full text-sm leading-none text-gray-800">
+									<th className="font-normal text-left pl-4 left-0 sticky bg-white"></th>
+									<th className="font-normal text-left pl-16"></th>
+									<th className="font-normal text-left pl-16">Status</th>
+									<th className="font-normal text-right pl-12">Floor</th>
+									<th className="font-normal text-right pl-12">24h</th>
+									<th className="font-normal text-right pl-12">7d</th>
+									<th className="font-normal text-right pl-12">1m</th>
+									<th className="font-normal text-right pl-12">
+										Volume 24h | 7d | 1m
+									</th>
+									<th className="font-normal text-left pl-12">24h</th>
+									<th className="font-normal text-left pl-12">7d</th>
+									<th className="font-normal text-left pl-12">1m</th>
+								</tr>
+							</thead>
+							<tbody className="w-full">
+								{collections.map((collection: Collection) => {
+									return <CollectionRow collection={collection} />;
+								})}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</>
+	);
+};
 
 export default Table;
