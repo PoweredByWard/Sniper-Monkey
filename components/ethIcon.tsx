@@ -1,4 +1,9 @@
-const EthIcon = () => {
+interface EthIconProps {
+	height?: number;
+	width?: number;
+}
+
+const EthIcon = ({ height = 15, width = 15 }: EthIconProps) => {
 	return (
 		<svg
 			stroke="currentColor"
@@ -6,8 +11,8 @@ const EthIcon = () => {
 			stroke-width="0"
 			role="img"
 			viewBox="0 0 24 24"
-			height="1em"
-			width="1em"
+			height={`${height}px`}
+			width={`${width}px`}
 			xmlns="http://www.w3.org/2000/svg"
 		>
 			<title></title>
