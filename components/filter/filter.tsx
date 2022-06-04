@@ -1,7 +1,7 @@
 import FilterTogle from "./comps/togleButton";
 import FilterItem from "./item";
 import FilterInput from "./comps/textInput";
-import FilterButton from "./comps/button";
+import Button from "./comps/button";
 import FilterSelect from "./comps/dropdown";
 import FilterOption from "./comps/option";
 import {
@@ -17,7 +17,7 @@ import { Collection } from "@sniper-monkey/types/build";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useEffect, useRef, useState } from "react";
 import { Pages, SmallPages } from "./pages";
-import { NftContextType, NftStatus, TraitElement } from "./providers/types";
+import { NftContextType, NftStatus, TraitElement } from "@sniper-monkey/types/build";
 import { NftContext } from "./providers/nftFilters";
 
 interface FilterProps {
@@ -87,7 +87,7 @@ const Filter = ({ collection }) => {
 						<FilterItem text="Ranking">
 							<p className="text-lg font-medium mb-3">Shortcuts</p>
 							<div className="flex justify-between mb-5">
-								<FilterButton
+								<Button
 									onClick={() =>
 										NftContextData.updateFunctions.setRankFilter({
 											min: 1,
@@ -96,8 +96,8 @@ const Filter = ({ collection }) => {
 									}
 								>
 									Top 1%
-								</FilterButton>
-								<FilterButton
+								</Button>
+								<Button
 									onClick={() =>
 										NftContextData.updateFunctions.setRankFilter({
 											min: 1,
@@ -106,8 +106,8 @@ const Filter = ({ collection }) => {
 									}
 								>
 									Top 5%
-								</FilterButton>
-								<FilterButton
+								</Button>
+								<Button
 									onClick={() =>
 										NftContextData.updateFunctions.setRankFilter({
 											min: 1,
@@ -116,7 +116,7 @@ const Filter = ({ collection }) => {
 									}
 								>
 									Top 10%
-								</FilterButton>
+								</Button>
 							</div>
 							<p className="text-lg font-medium  mb-3">Input</p>
 							<div className="grid grid-cols-2 gap-4 my-2">
@@ -131,7 +131,7 @@ const Filter = ({ collection }) => {
 									placeholder={"max"}
 								/>
 							</div>
-							<FilterButton
+							<Button
 								onClick={() => {
 									let min = Number(rankingMin.current.value);
 									let max = Number(rankingMax.current.value);
@@ -159,7 +159,7 @@ const Filter = ({ collection }) => {
 								}}
 							>
 								Apply
-							</FilterButton>
+							</Button>
 						</FilterItem>
 						<FilterItem text="Price">
 							<FilterSelect callback={() => {}}>
@@ -170,7 +170,7 @@ const Filter = ({ collection }) => {
 								<FilterInput type="number" placeholder="min" />
 								<FilterInput type="number" placeholder="max" />
 							</div>
-							<FilterButton>Apply</FilterButton>
+							<Button>Apply</Button>
 						</FilterItem>
 						<FilterItem text="Properties">
 							{collection && (

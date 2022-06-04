@@ -4,7 +4,7 @@ import {
 	NftFilterState,
 	NftStatus,
 	TraitElement,
-} from "./types";
+} from "@sniper-monkey/types/build";
 
 const NftContext = createContext<NftContextType>(null);
 

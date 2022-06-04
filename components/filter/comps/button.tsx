@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { ButtonHTMLAttributes, useState } from "react";
 
-const FilterButton = ({ children, onClick = null }) => {
+const Button = (props: ButtonHTMLAttributes<HTMLButtonElement>) => {
 	return (
 		<button
-			onClick={onClick}
-			className="bg-indigo-700 p-2 rounded-md hover:bg-indigo-600 px-5 font-semibold"
+		{...props}
+			className={"bg-indigo-700 p-2 rounded-md hover:bg-indigo-600 px-5 font-semibold "+props.className}
 		>
-			{children}
+			{props.children}
 		</button>
 	);
 };
 
-export default FilterButton;
+export default Button;

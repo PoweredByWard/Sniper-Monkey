@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { pastel_colour } from "../../lib/colors";
 import EthIcon from "../ethIcon";
 import { NftContext } from "../filter/providers/nftFilters";
-import { TraitElement } from "../filter/providers/types";
+import { TraitElement } from "@sniper-monkey/types/build";
 import { LimitTag } from "./tag";
 
 interface NftRowProps {

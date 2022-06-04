@@ -9,7 +9,7 @@ import {
 	NftFilters,
 	NftStatus,
 	TraitElement,
-} from "./providers/types";
+} from "@sniper-monkey/types/build";
 
 const FilterList = () => {
 	const filter: NftContextType = useContext(NftContext);

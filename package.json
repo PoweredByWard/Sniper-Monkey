@@ -9,10 +9,15 @@
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
-    "@sniper-monkey/types": "^1.0.7",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
+    "@sniper-monkey/types": "^1.0.9",
+    "@walletconnect/web3-provider": "^1.7.8",
+    "dotenv": "^16.0.1",
+    "moralis": "^1.8.0",
     "next": "12.1.6",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-moralis": "^1.4.0"
   },
   "devDependencies": {
     "@types/node": "17.0.31",
